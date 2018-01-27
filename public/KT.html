@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kisora Thomas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.7/sweetalert2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link rel="stylesheet" href="public/styles/kt.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.7/sweetalert2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+</head>
+<body>
+    <script>
+
+            var Data = JSON.parse(localStorage.getItem('data'));
+
+            function importScript(path){
+                console.log(path);
+                $.ajax({async: false,url: "public/"+path,dataType: "script"});
+            }
+
+            function getAllJsImports(pathExtension){
+                $.ajax({async:false,url:'/imports/'+pathExtension,success:function(data){
+                    console.log(data);$.each(data,function(){importScript(pathExtension+"/"+this.name);});}
+                });
+            }
+
+            getAllJsImports("libraries");
+            getAllJsImports("cards");
+            getAllJsImports("panels");
+
+            $.get('/kt/list',function(data){
+                console.log(data);
+                var WA = new WebApp(data);
+            });
+
+    </script>
+</body>
+</html>

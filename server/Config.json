@@ -1,0 +1,23 @@
+{
+    "engineer":{
+        "name": "The Engineer",
+        "taglines": "#Analyze #Calculate #Solve",
+        "description": "Engineering requires the ability to see beyond the surface.",
+        "image": "",
+        "video": ""
+    },
+    "designer":{
+        "name": "The Designer",
+        "taglines": "#Envision #Create #Inspire",
+        "description": "Design is where utility and beauty intersect.",
+        "image": "",
+        "video": ""
+    },
+    "chef":{
+        "name": "The Chef",
+        "taglines": "#Innovate #Execute #Fulfill",
+        "description": "Humans respond to certain combinations of flavours. By tuning the palate and restraining the hand, one can play the senses like a flute.",
+        "image": "",
+        "video": ""
+    }
+}

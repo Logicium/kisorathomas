@@ -1,0 +1,36 @@
+{
+  "name": "files",
+  "version": "1.0.0",
+  "description": "Json based File manager for the web",
+  "main": "Files.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "directory-structure-json": "^1.0.0",
+    "express": "^4.14.1",
+    "fs-extra": "^1.0.0",
+    "js-beautify": "^1.0.0",
+    "jsonwebtoken": "^1.0.0",
+    "leveldown": "^1.6.0",
+    "linvodb3": "^3.25.0",
+    "lodash": "^4.17.4",
+    "multer": "^1.0.0",
+    "multer-gridfs-storage": "^2.1.0",
+    "nodemailer": "^1.0.0",
+    "write": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Files.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Logicium/Files.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Logicium/Files/issues"
+  },
+  "homepage": "https://github.com/Logicium/Files#readme"
+}
