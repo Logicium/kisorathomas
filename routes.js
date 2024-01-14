@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var LinvoDB = require("linvodb3");
-LinvoDB.dbPath = process.cwd();
 var DirectoryStructureJSON = require('directory-structure-json');
 var fs = require('fs');
 var path = require('path');
 var jwt = require('jsonwebtoken');
-
-var Databases = require('./server/Databases');
 
 
 router.get('/',function(request,response){

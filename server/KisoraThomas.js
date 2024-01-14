@@ -1,6 +1,5 @@
 var express = require('express');
 var fs = require('fs-extra');
-var mkdirp = require('mkdirp');
 var router = express.Router();
 var multer = require('multer');
 var path = require('path');
@@ -120,57 +119,6 @@ router.post('/uploadFiles', function(request, response) {
 
 router.post('/signup', function(request, response) {
   console.log("New user signup request.");
-  var incomingUser = JSON.parse(request.body.user);
-  console.log(incomingUser['email']);
-
-  Databases.Users.count({
-    email: incomingUser['email']
-  }, function(err, count) {
-    if (count > 0) {
-      response.send({ message: 'Username is taken', type: 'warning' });
-    } else {
-
-      const now = new Date().getUTCMilliseconds();
-      var userFolder = './public/folders/'+incomingUser.email+'-'+now;
-      incomingUser.userFolder = userFolder;
-      incomingUser.created = now.toString();
-      incomingUser.verified = 'false';
-      incomingUser.username = incomingUser.email;
-
-      mkdirp(userFolder, function(err) {
-        if (err) console.error(err);
-        else {
-          console.log('User folder created');
-          Databases.Users.insert(incomingUser, function(err,newUser) {
-            if (err) return console.log('err');
-            Databases.Folders.insert({ user: incomingUser.created, filesystem: {} }, function(err, docs) {
-              if (err) return console.log('err');
-              console.log(docs);
-              var verifyLink = '<a href="http://' + request.get('host') + '/verifyEmail?id=' + newUser._id + '">Verify your email here</a>';
-              var mailOptions = {
-                from: '"Files3D Team" <webadmin@files3d.herokuapp.com>', // sender address
-                to: newUser['email'], // list of receivers as string
-                subject: 'Files3D Email Verification',
-                html: 'Verify your email for Files3d<br><br>' +
-                  verifyLink + '<br><pre>' + JSON.stringify(
-                    newUser, null, 2).toString() +
-                  '</pre>'
-              };
-              response.send({
-                message: 'New User Added',
-                doc: newUser,
-                type: 'success'
-              });
-              // transporter.sendMail(mailOptions, function(error, info) {
-              //     if (error) return console.log(error);
-              //     //console.log('Message %s sent: %s', info.messageId, info.response);
-              // });
-            });
-          });
-        }
-      });
-    }
-  });
 });
 
 router.post('/verifyEmail', function(request, response) {
