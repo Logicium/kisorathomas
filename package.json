@@ -1,8 +1,8 @@
 {
-  "name": "files",
+  "name": "KT",
   "version": "1.0.0",
-  "description": "Json based File manager for the web",
-  "main": "Files.js",
+  "description": "Kisora Thomas",
+  "main": "kt.js",
   "dependencies": {
     "body-parser": "^1.16.1",
     "directory-structure-json": "^1.0.0",
@@ -21,16 +21,16 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Files.js"
+    "start": "node kt.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Logicium/Files.git"
+    "url": "git+https://github.com/Logicium/kt.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Logicium/Files/issues"
+    "url": "https://github.com/Logicium/kisorathomas/issues"
   },
-  "homepage": "https://github.com/Logicium/Files#readme"
+  "homepage": "https://github.com/Logicium/kisorathomas#readme"
 }
